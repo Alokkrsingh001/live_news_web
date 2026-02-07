@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live News</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="theme-toggle" id="themeToggle">
+        <span class="themeIcon"></span>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Live News</h1>
+            <p>Stay updated with the latest news from around the world.</p>
+            <div class="search-categories">
+                <input type="text" class="search-box" placeholder="Search news..." id="searchInput">
+                <div class="categories">
+                    <button class="category-btn active" data-category="general">General</button>
+                    <button class="category-btn" data-category="business">Business</button>
+                    <button class="category-btn" data-category="entertainment">Entertainment</button>
+                    <button class="category-btn" data-category="health">Health</button>
+                    <button class="category-btn" data-category="science">Science</button>
+                    <button class="category-btn" data-category="sports">Sports</button>
+                    <button class="category-btn" data-category="technology">Technology</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="news-grid" id="newsGrid"></div>
+
+    <div class="loading" id="loading" style="display: none;">Loading news...</div>
+
+    <div class="error" id="error" style="display: none;"></div>
+
+    <div class="end-message" id="endMessage" style="display: none;">You've reached the end of the news feed.</div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Live News. All rights reserved.</p>
+            <p><i class="fas fa-user"></i> Developed by Alok Kr Singh</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+   <script src="script.js"></script>
+</body>
+</html>
