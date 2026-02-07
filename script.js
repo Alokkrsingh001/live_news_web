@@ -2,7 +2,7 @@ class NewsApp {
     constructor() {
         this.API_KEY = "3f8a4f44711b4644a6363a065e6b991f";
 
-        this.BaseUrl = "/api";
+        this.BaseUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent("https://newsapi.org/v2");
 
         this.state = {
             category: "general",
@@ -118,7 +118,8 @@ class NewsApp {
             try {
                 const url = this.buildUrl();
                 const response = await fetch(url);
-                const data = await response.json();
+                const proxyData = await response.json();
+                const data = JSON.parse(proxyData.contents);
                 if (data.status == "ok" && data.articles.length > 0) {
                     this.state.articles = data.articles;
                     this.state.totalResults = data.totalResults;
@@ -217,7 +218,8 @@ class NewsApp {
         buildUrl() {
             const params = new URLSearchParams({
                 page: this.state.page,
-                pageSize: 20
+                pageSize: 20,
+                apiKey: this.API_KEY
             });
 
             if (this.state.query) {
@@ -238,7 +240,7 @@ class NewsApp {
             articles.forEach(article => {
                 const card = document.createElement("div");
                 card.className = "news-card";
-                card.dataset.url = article.url;
+                 card.dataset.url = article.url;
 
                 const img = article.urlToImage ? `<img src="${article.urlToImage}" alt="${article.title}" class="news-image" onerror="this.outerHTML='<div class=\\'news-image default-image\\'>YOUR NEWS</div>'">`:`<div class="news-image default-image">YOUR NEWS</div>`;
 
